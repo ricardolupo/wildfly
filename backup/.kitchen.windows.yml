@@ -1,0 +1,33 @@
+---
+driver:
+  name: ec2
+  aws_ssh_key_id: gramsay_bot
+  region: us-east-1
+  availability_zone: us-east-1a
+  security_group_ids: sg-e5bafc83
+  subnet_id: subnet-977469ce
+  instance_type: m3.large
+  tags:
+    # Replace YOURNAME and YOURCOMPANY here
+    Name: "Chef Training Node for YOURNAME,YOURCOMPANY"
+    created-by: "test-kitchen"
+    user: <%= ENV['USER'] %>
+
+provisioner:
+  name: chef_zero
+  cookbook_path: C:\Users\Administrator\chef-repo\cookbooks
+
+platforms:
+  - name: windows-2012r2
+    driver_config:
+      image_id: ami-ca82c4a0
+    transport:
+      username: Administrator
+      password: Cod3Can!
+      ssh_key: C:\Users\Administrator\.ssh\gramsay_bot.pem
+
+suites:
+  - name: default
+    run_list:
+      #- recipe[cookbook_name::recipe_name]
+    attributes:

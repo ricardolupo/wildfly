@@ -1,0 +1,7 @@
+name 'wildfly'
+maintainer 'The Authors'
+maintainer_email 'you@example.com'
+license 'all_rights'
+description 'Installs/Configures wildfly'
+long_description 'Installs/Configures wildfly'
+version '0.1.4'
